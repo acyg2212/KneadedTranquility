@@ -5,7 +5,9 @@ import App from './App';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
-const store = configureStore();
+const token = window.localStorage.getItem('SPA_TOKEN')
+const store = configureStore({ auth: { token } });
+
 
 ReactDOM.render(
   <React.StrictMode>

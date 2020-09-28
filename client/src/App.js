@@ -1,30 +1,37 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import ProtectedRoute from "./components/ProtectedRoute";
 
-import UserList from './components/UsersList';
 
 
-function App() {
+function App(props) {
 
-  return (
-    <BrowserRouter>
-        <nav>
-            <ul>
-                <li><NavLink to="/" activeClass="active">Home</NavLink></li>
-                <li><NavLink to="/users" activeClass="active">Users</NavLink></li>
-            </ul>
-        </nav>
-        <Switch>
-            <Route path="/users">
-                <UserList />
-            </Route>
+    return (
+        <BrowserRouter>
+            <nav>
+                <ul>
+                    <li><NavLink to="/" activeClassName="active">Home</NavLink></li>
+                    <li><NavLink to="/login" activeClassName="active">Log In</NavLink></li>
+                </ul>
+            </nav>
+            <Switch>
+                <Route path="/login">
+                    <LoginForm />
+                </Route>
 
-            <Route path="/">
-                <h1>My Home Page</h1>
-            </Route>
-        </Switch>
-    </BrowserRouter>
-  );
+                <ProtectedRoute isLoggedIn={props.token} path="/">
+                    <h1>My Home Page</h1>
+                </ProtectedRoute>
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token,
+    }
+}
+export default connect(mapStateToProps)(App);
