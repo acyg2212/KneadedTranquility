@@ -26,13 +26,14 @@ export const actions = {
 const tryLogin = () => {
     return async (dispatch, getState) => {
         const { auth: { email, password } } = getState();
-        const response = await fetch('api/users', {
+        const response = await fetch('http://localhost:3000/api/users', {
             method: "POST",
             body: JSON.stringify({ email, password }),
             headers: {
                 "Content-Type": "application/json"
             }
         });
+        console.log(response)
         try {
             if (response.status >= 200 && response.status < 400) {
                 const data = await response.json();
