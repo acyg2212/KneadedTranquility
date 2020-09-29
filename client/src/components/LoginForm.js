@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { actions, thunks } from '../store/auth';
 
 const LoginForm = props => {
-
     return (
         <form>
             <div>
@@ -23,7 +22,10 @@ const mapDispatchToProps = dispatch => {
     return {
         updateEmailValue: event => dispatch(actions.updateEmailValue(event.target.value)),
         updatePasswordValue: event => dispatch(actions.updatePasswordValue(event.target.value)),
-        tryLogin: () => dispatch(thunks.tryLogin()),
+        tryLogin: (event) => {
+            event.preventDefault();
+            dispatch(thunks.tryLogin());
+        }
     };
 };
 

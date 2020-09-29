@@ -5,8 +5,8 @@ const express = require('express');
 const helmet = require('helmet');
 const path = require('path');
 const logger = require('morgan');
-const csurf = require('csurf');
 const routes = require('./routes');
+const usersRouter = require('./routes/api/users');
 
 const app = express();
 
@@ -21,16 +21,17 @@ app.use(cookieParser())
 // Security Middleware
 app.use(cors({ origin: true }));
 app.use(helmet({ hsts: false }));
-app.use(csurf({
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: process.env.NODE_ENV === 'production',
-    httpOnly: true
-  }
-}));
+// app.use(csurf({
+//   cookie: {
+//     secure: process.env.NODE_ENV === 'production',
+//     sameSite: process.env.NODE_ENV === 'production',
+//     httpOnly: true
+//   }
+// }));
 
 
 app.use(routes);
+app.use('/api/users', usersRouter);
 
 // Serve React Application
 // This should come after routes, but before 404 and error handling.
@@ -42,11 +43,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-app.use(function(_req, _res, next) {
+app.use(function (_req, _res, next) {
   next(createError(404));
 });
 
-app.use(function(err, _req, res, _next) {
+app.use(function (err, _req, res, _next) {
   res.status(err.status || 500);
   if (err.status === 401) {
     res.set('WWW-Authenticate', 'Bearer');
