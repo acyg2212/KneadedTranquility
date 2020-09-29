@@ -5,6 +5,8 @@ const { expiresIn } = require('../../config').jwtConfig;
 const { getUserToken } = require('../../auth');
 const cors = require("cors");
 const { User } = require('../../db/models');
+const { userCreatorValidators, userLoginValidators } = require('../../auth');
+const { validationResult } = require('express-validator');
 
 const router = express.Router();
 
@@ -13,8 +15,15 @@ router.get('/', asyncHandler(async function (req, res, next) {
     res.json({ users });
 }));
 
-router.post("/", cors(), asyncHandler(async (req, res, next) => {
+router.post("/", cors(), userLoginValidators, asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
+
+    const validatorErrors = validationResult(req)
+    if (!validatorErrors.isEmpty()) {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        console.log(errors)
+        return res.status(422).json({ errors })
+    }
     const user = await User.findOne({
         where: { email }
     });
@@ -24,11 +33,50 @@ router.post("/", cors(), asyncHandler(async (req, res, next) => {
         err.status = 401;
         err.title = "Unauthorized";
         throw err;
+    } else {
+        await user.save();
+        const token = getUserToken(user);
+        console.log("Token:", token);
+        res.cookie('token', token, { maxAge: expiresIn * 1000 });
+        res.json({ id: user.id, token });
     }
-    const token = getUserToken(user);
-    console.log("Token:", token);
-    res.cookie('token', token, { maxAge: expiresIn * 1000 });
-    res.json({ id: user.id, token });
+}))
+
+router.post("/register", cors(), userCreatorValidators, asyncHandler(async (req, res, next) => {
+    console.log(req.body)
+    const {
+        email,
+        password,
+        firstName,
+        lastName,
+        confirmPassword,
+        phoneNumber
+    } = req.body;
+
+    const hashedPassword = bcrypt.hashSync(password);
+
+    const user = User.build({
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        hashedPassword
+
+    })
+
+    const validatorErrors = validationResult(req)
+
+    if (validatorErrors.isEmpty()) {
+        await user.save();
+        const token = getUserToken(user);
+        console.log("Token:", token);
+        res.cookie('token', token, { maxAge: expiresIn * 1000 });
+        res.json({ id: user.id, token });
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        console.log(errors)
+        return res.status(422).json({ errors })
+    }
 
 }))
 
