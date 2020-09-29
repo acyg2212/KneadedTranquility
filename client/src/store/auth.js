@@ -1,3 +1,4 @@
+
 const UPDATE_EMAIL_VALUE = 'kneadedtranquility/auth/UPDATE_EMAIL_VALUE';
 const UPDATE_PASSWORD_VALUE = 'kneadedtranquility/auth/UPDATE_PASSWORD_VALUE';
 const UPDATE_TOKEN_VALUE = 'kneadedtranquility/auth/UPDATE_TOKEN_VALUE';
@@ -104,6 +105,7 @@ const tryRegister = () => {
                 const data = await response.json();
                 dispatch(updateTokenValue(data.token));
                 window.localStorage.setItem('SPA_TOKEN', data.token);
+
             } else if (response.status === 422) {
                 const errors = await response.json();
                 console.log(errors)

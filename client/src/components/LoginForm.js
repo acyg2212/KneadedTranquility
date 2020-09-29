@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { actions, thunks } from '../store/auth';
 
 const LoginForm = props => {
     console.log(props)
+    if (props.token) {
+        return <Redirect to="/appointments" />
+    }
     return (
         <div className="form-container">
             <ul className="errors">
@@ -13,8 +17,9 @@ const LoginForm = props => {
                 }
             </ul>
             <form>
-                <h1>Sign In</h1>
-                <h7>Sign in below or create an account.</h7>
+                <h1 className="login-header">Sign In</h1>
+                <p className="form-p">Sign in below or</p>
+                <a className="form-link" href="/sign-up">create an account.</a>
                 <div>
                     <input onChange={props.updateEmailValue} value={props.email || ''} type="email" placeholder="E-Mail" required />
                 </div>
@@ -45,6 +50,7 @@ const mapStateToProps = state => {
         email: state.auth.email,
         password: state.auth.password,
         errors: state.auth.errors,
+        token: state.auth.token,
     };
 };
 

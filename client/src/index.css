@@ -44,6 +44,7 @@ form{
     align-items: center;
     border-radius: 15px;
     padding: 10px;
+    padding-bottom: 30px;
 }
 
 .form-container{
@@ -54,9 +55,22 @@ form{
 
 h3{
     text-align: center;
+    margin-block-end: 2px;
 }
 
 .errors{
     color: red;
     padding-right: 10px;
+}
+
+.form-p{
+    margin-block-end: 0;
+}
+
+.login-header{
+    margin-block-end: 2px;
+}
+
+.form-link{
+    padding-bottom: 5px;
 }

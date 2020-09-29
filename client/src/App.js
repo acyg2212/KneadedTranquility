@@ -18,14 +18,14 @@ function App(props) {
                 <NavBar />
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/appointments">
+                    <Route path="/login">
                         <LoginForm />
                     </Route>
                     <Route path="/sign-up">
                         <RegisterUser />
                     </Route>
 
-                    <ProtectedRoute isLoggedIn={props.token} path="/make-appointment">
+                    <ProtectedRoute isLoggedIn={props.token} path="/appointments">
                         <h1>My Home Page</h1>
                     </ProtectedRoute>
                 </Switch>

@@ -1,20 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actions, thunks } from '../store/auth';
+import { Redirect } from 'react-router-dom';
 
 const RegisterUser = props => {
     console.log(props)
+    if (props.token) {
+        return <Redirect to="/appointments" />
+    }
     return (
         <div className="form-container">
             <ul className="errors">
                 {props.errors ?
-                    props.errors.errors.map(error =>
-                        <li>{error}</li>) : ""
+                    props.errors.errors.map((error, idx) =>
+                        <li key={idx}>{error}</li>) : ""
                 }
             </ul>
             <form>
                 <h3>Create a Kneaded Tranquility Account</h3>
-                <p>Create a new account below or sign in.</p>
+                <p className="form-p">Create a new account below</p>
+                <a className="form-link" href=" /login">or sign in here.</a>
                 <div>
                     <input onChange={props.updateFirstNameValue} value={props.firstName || ''} type="text" placeholder="First Name" required />
                 </div>
@@ -37,7 +42,7 @@ const RegisterUser = props => {
                     <button onClick={props.tryRegister}>Register</button>
                 </div>
             </form>
-        </div>
+        </div >
     );
 };
 
@@ -69,6 +74,7 @@ const mapStateToProps = state => {
         lastName: state.auth.lastName,
         confirmPassword: state.auth.confirmPassword,
         errors: state.auth.errors,
+        token: state.auth.token,
     };
 };
 
