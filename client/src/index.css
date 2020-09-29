@@ -34,3 +34,29 @@ footer{
     bottom: 0;
     widows: 100%;
 }
+
+form{
+    border: black solid 3px;
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3{
+    text-align: center;
+}
+
+.errors{
+    color: red;
+    padding-right: 10px;
+}

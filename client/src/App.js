@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import ProtectedRoute from "./components/ProtectedRoute";
 import NavBar from './components/NavBar';
 import Logo from './assets/Kneaded-Tranquility-Logo.gif';
 import Home from './components/Home';
+import RegisterUser from './components/RegisterUser';
 
 
 function App(props) {
@@ -19,6 +20,9 @@ function App(props) {
                     <Route exact path="/" component={Home} />
                     <Route path="/appointments">
                         <LoginForm />
+                    </Route>
+                    <Route path="/sign-up">
+                        <RegisterUser />
                     </Route>
 
                     <ProtectedRoute isLoggedIn={props.token} path="/make-appointment">

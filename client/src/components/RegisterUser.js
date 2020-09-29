@@ -1,0 +1,75 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import { actions, thunks } from '../store/auth';
+
+const RegisterUser = props => {
+    console.log(props)
+    return (
+        <div className="form-container">
+            <ul className="errors">
+                {props.errors ?
+                    props.errors.errors.map(error =>
+                        <li>{error}</li>) : ""
+                }
+            </ul>
+            <form>
+                <h3>Create a Kneaded Tranquility Account</h3>
+                <p>Create a new account below or sign in.</p>
+                <div>
+                    <input onChange={props.updateFirstNameValue} value={props.firstName || ''} type="text" placeholder="First Name" required />
+                </div>
+                <div>
+                    <input onChange={props.updateLastNameValue} value={props.lastName || ''} type="text" placeholder="Last Name" required />
+                </div>
+                <div>
+                    <input onChange={props.updateEmailValue} value={props.email || ''} type="email" placeholder="E-Mail" required />
+                </div>
+                <div>
+                    <input onChange={props.updatePhoneNumberValue} value={props.phoneNumber || ''} type="tel" placeholder="Phone Number" required />
+                </div>
+                <div>
+                    <input onChange={props.updatePasswordValue} value={props.password || ''} type="password" placeholder="Password" required />
+                </div>
+                <div>
+                    <input onChange={props.updateConfirmPasswordValue} value={props.confirmPassword || ''} type="password" placeholder="Confirm Password" required />
+                </div>
+                <div>
+                    <button onClick={props.tryRegister}>Register</button>
+                </div>
+            </form>
+        </div>
+    );
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        updateEmailValue: event => dispatch(actions.updateEmailValue(event.target.value)),
+        updatePasswordValue: event => dispatch(actions.updatePasswordValue(event.target.value)),
+        updatePhoneNumberValue: event => dispatch(actions.updatePhoneNumberValue(event.target.value)),
+        updateFirstNameValue: event => dispatch(actions.updateFirstNameValue(event.target.value)),
+        updateLastNameValue: event => dispatch(actions.updateLastNameValue(event.target.value)),
+        updateConfirmPasswordValue: event => dispatch(actions.updateConfirmPasswordValue(event.target.value)),
+        tryLogin: (event) => {
+            event.preventDefault();
+            dispatch(thunks.tryLogin());
+        },
+        tryRegister: (event) => {
+            event.preventDefault();
+            dispatch(thunks.tryRegister());
+        }
+    };
+};
+
+const mapStateToProps = state => {
+    return {
+        email: state.auth.email,
+        password: state.auth.password,
+        phoneNumber: state.auth.phoneNumber,
+        firstName: state.auth.firstName,
+        lastName: state.auth.lastName,
+        confirmPassword: state.auth.confirmPassword,
+        errors: state.auth.errors,
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterUser);
