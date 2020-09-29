@@ -74,6 +74,7 @@ const tryLogin = () => {
             if (response.status >= 200 && response.status < 400) {
                 const data = await response.json();
                 dispatch(updateTokenValue(data.token));
+                dispatch(updateFirstNameValue(data.firstName))
                 window.localStorage.setItem('SPA_TOKEN', data.token);
             } else if (response.status === 401) {
                 dispatch(updateErrorsValue({ errors: ["UserName or Password is Incorrect"] }))

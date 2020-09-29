@@ -6,7 +6,7 @@ import { actions, thunks } from '../store/auth';
 const LoginForm = props => {
     console.log(props)
     if (props.token) {
-        return <Redirect to="/appointments" />
+        return <Redirect to="/appointments" props={props} />
     }
     return (
         <div className="form-container">

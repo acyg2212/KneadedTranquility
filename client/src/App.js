@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import Logo from './assets/Kneaded-Tranquility-Logo.gif';
 import Home from './components/Home';
 import RegisterUser from './components/RegisterUser';
+import Appointments from './components/Appointments';
 
 
 function App(props) {
@@ -26,7 +27,7 @@ function App(props) {
                     </Route>
 
                     <ProtectedRoute isLoggedIn={props.token} path="/appointments">
-                        <h1>My Home Page</h1>
+                        <Appointments />
                     </ProtectedRoute>
                 </Switch>
             </BrowserRouter>

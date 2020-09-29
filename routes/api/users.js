@@ -38,7 +38,7 @@ router.post("/", cors(), userLoginValidators, asyncHandler(async (req, res, next
         const token = getUserToken(user);
         console.log("Token:", token);
         res.cookie('token', token, { maxAge: expiresIn * 1000 });
-        res.json({ id: user.id, token });
+        res.json({ id: user.id, token, firstName: user.firstName });
     }
 }))
 

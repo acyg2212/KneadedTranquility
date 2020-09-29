@@ -74,3 +74,12 @@ h3{
 .form-link{
     padding-bottom: 5px;
 }
+
+/* This is where the CSS for the Appointment Screen Begins */
+
+.appointments-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: gray;
+}
