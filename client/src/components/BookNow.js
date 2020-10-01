@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Service from './Service';
-import Employee from './Employee'
+
 
 const BookNow = () => {
     let [serviceTypes, setServiceTypes] = useState([]);
@@ -9,7 +9,6 @@ const BookNow = () => {
     const handleChange = event => {
         // event.preventDefault()
         setSelectedOption(event.target.value)
-        console.log(selectedOption)
     }
 
     // let renderSelectedForm = (selectedOption) => {
@@ -56,9 +55,6 @@ const BookNow = () => {
             </select>
             <div>
                 {selectedOption ? <Service props={selectedOption} /> : ""}
-            </div>
-            <div>
-                {selectedOption ? <Employee props={selectedOption} /> : ""}
             </div>
         </div>
     )

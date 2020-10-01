@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Calendar from "./Calendar"
 
 const Employee = ({ props }) => {
     let [employees, setEmployee] = useState([]);
@@ -11,7 +12,7 @@ const Employee = ({ props }) => {
 
     useEffect(() => {
         const loadServiceTypes = async () => {
-            const response = await fetch(`http://localhost:3000/api/appointments/employee/${props}`)
+            const response = await fetch(`http://localhost:3000/api/appointments/employee/${props.serviceTypeId}`)
             if (response.ok) {
                 let employed = await response.json()
                 let { employees } = employed
@@ -37,6 +38,9 @@ const Employee = ({ props }) => {
                 })
                 }
             </select>
+            <div>
+                {selectedEmployeeOption ? <Calendar props={{ props, employeeId: selectedEmployeeOption }} /> : ""}
+            </div>
         </div>
 
     )

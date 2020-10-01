@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Employee from './Employee';
 
 const Service = ({ props }) => {
     let [services, setServices] = useState([]);
     let [selectedServiceOption, setSelectedServiceOption] = useState('');
-    console.log(props)
+
 
     const handleChange = event => {
         setSelectedServiceOption(event.target.value)
@@ -37,6 +38,9 @@ const Service = ({ props }) => {
                 })
                 }
             </select>
+            <div>
+                {selectedServiceOption ? <Employee props={{ serviceTypeId: props, serviceId: selectedServiceOption }} /> : ""}
+            </div>
         </div>
 
     )
