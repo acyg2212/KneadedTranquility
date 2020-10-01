@@ -31,8 +31,9 @@ footer{
     background-color: aqua;
     height: 75px;
     position: static;
-    bottom: 0;
+    bottom: 100px;
     widows: 100%;
+    position: fixed;
 }
 
 form{
@@ -82,4 +83,8 @@ h3{
     flex-direction: row;
     justify-content: space-between;
     background-color: gray;
+}
+
+.isHidden{
+    display: none;
 }

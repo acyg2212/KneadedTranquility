@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     lastName: DataTypes.STRING,
     serviceTypeId: DataTypes.INTEGER
   }, {});
-  Employee.associate = function(models) {
-    // associations can be defined here
+  Employee.associate = function (models) {
+    Employee.belongsTo(models.ServiceType, { foreignKey: 'serviceTypeId' });
   };
   return Employee;
 };

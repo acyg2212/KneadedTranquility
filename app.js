@@ -7,6 +7,7 @@ const path = require('path');
 const logger = require('morgan');
 const routes = require('./routes');
 const usersRouter = require('./routes/api/users');
+const appointmentsRouter = require('./routes/api/appointments');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(helmet({ hsts: false }));
 
 app.use(routes);
 app.use('/api/users', usersRouter);
+app.use('/api/appointments', appointmentsRouter);
 
 // Serve React Application
 // This should come after routes, but before 404 and error handling.
