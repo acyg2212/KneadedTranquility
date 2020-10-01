@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Service.associate = function (models) {
-    // associations can be defined here
+    Service.belongsTo(models.ServiceType, { foreignKey: 'serviceTypeId' });
   };
   return Service;
 };
