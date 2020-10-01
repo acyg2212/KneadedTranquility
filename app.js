@@ -32,8 +32,8 @@ app.use(helmet({ hsts: false }));
 
 
 app.use(routes);
-app.use('/api/users', usersRouter);
-app.use('/api/appointments', appointmentsRouter);
+// app.use('/api/users', usersRouter);
+// app.use('/api/appointments', appointmentsRouter);
 
 // Serve React Application
 // This should come after routes, but before 404 and error handling.
