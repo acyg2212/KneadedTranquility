@@ -75,7 +75,9 @@ const tryLogin = () => {
                 const data = await response.json();
                 dispatch(updateTokenValue(data.token));
                 dispatch(updateFirstNameValue(data.firstName))
+                console.log(data)
                 window.localStorage.setItem('SPA_TOKEN', data.token);
+                window.localStorage.setItem('userId', data.id)
             } else if (response.status === 401) {
                 dispatch(updateErrorsValue({ errors: ["UserName or Password is Incorrect"] }))
             } else if (response.status === 422) {
@@ -106,6 +108,7 @@ const tryRegister = () => {
                 const data = await response.json();
                 dispatch(updateTokenValue(data.token));
                 window.localStorage.setItem('SPA_TOKEN', data.token);
+                window.localStorage.setItem('userId', data.userId)
 
             } else if (response.status === 422) {
                 const errors = await response.json();
