@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import { tryServiceType } from "../store/appointmentBooking";
-import { connect } from 'react-redux';
+import Service from './Service';
+import Employee from './Employee'
 
 const BookNow = () => {
     let [serviceTypes, setServiceTypes] = useState([]);
     let [selectedOption, setSelectedOption] = useState('');
 
     const handleChange = event => {
-        event.preventDefault()
-        setSelectedOption({ value: event.target.value })
+        // event.preventDefault()
+        setSelectedOption(event.target.value)
         console.log(selectedOption)
     }
 
-    let renderSelectedForm = (selectedOption) => {
-        switch (selectedOption.value) {
-            case "1":
-                return <div>Option 1</div>
+    // let renderSelectedForm = (selectedOption) => {
+    //     switch (selectedOption.value) {
+    //         case "1":
+    //             return <Massage />
 
-            case "2":
-                return <div>Option 2</div>
+    //         case "2":
+    //             return <div>Option 2</div>
 
-            case "3":
-                return <div>Option 3</div>
-            default:
-                return null;
-        }
-    }
+    //         case "3":
+    //             return <div>Option 3</div>
+    //         default:
+    //             return null;
+    //     }
+    // }
 
     useEffect(() => {
         const loadServiceTypes = async () => {
@@ -34,29 +34,31 @@ const BookNow = () => {
                 let service = await response.json()
                 let { serviceTypes } = service
                 setServiceTypes({ serviceTypes })
-                console.log(serviceTypes)
-
             }
         }
         loadServiceTypes()
     }, [])
+
     if (serviceTypes.length === 0) {
         return null;
     }
-    console.log(serviceTypes)
+
     return (
         <div className="book-now-div">
             <select value={selectedOption} onChange={handleChange} id="serviceTypes">
                 <option value="">--Please choose a Service Type--</option>
                 {serviceTypes.serviceTypes.map(serviceType => {
                     return (
-                        <option value={serviceType.id}>{serviceType.serviceCategory}</option>
+                        <option key={serviceType.id} value={serviceType.id}>{serviceType.serviceCategory}</option>
                     )
                 })
                 }
             </select>
             <div>
-                {renderSelectedForm(selectedOption)}
+                {selectedOption ? <Service props={selectedOption} /> : ""}
+            </div>
+            <div>
+                {selectedOption ? <Employee props={selectedOption} /> : ""}
             </div>
         </div>
     )
