@@ -71,16 +71,29 @@ const MyAppointments = props => {
 
     return (
         <div className="my-appointments-container">
-            <h4>Past Appointments</h4>
-            <div className="past-appointments">
-                {pastAppointments ? pastAppointments.map(appointment =>
-                    (<div key={appointment.id}>{appointment.date} {appointment.Employee.firstName}
-                        {appointment.Service.serviceName}</div>)) : ""}
+            <div className="my-appointments-container__container">
+                <h4>Past Appointments</h4>
+                <div className="past-appointments">
+                    {pastAppointments ? pastAppointments.map(appointment =>
+                        (<div className="appointments" key={appointment.id}>
+                            <span className="date">{appointment.date}</span>
+                            <span className='time'>{appointment.Time.time}</span>
+                            <span className="staff">{appointment.Employee.firstName}</span>
+                            <span className='service'>{appointment.Service.serviceName}</span>
+                        </div>)) : "No Past Appointments to Show"}
+                </div>
             </div>
-            <h4>Future Appointments</h4>
-            <div className="past-appointments">
-                {futureAppointments ? futureAppointments.map(appointment => (
-                    <div key={appointment.id}>{appointment.date} {appointment.Time.time} {appointment.Employee.firstName} {appointment.Service.serviceName}</div>)) : ""}
+            <div className="my-appointments-container__container">
+                <h4>Future Appointments</h4>
+                <div className="past-appointments">
+                    {futureAppointments ? futureAppointments.map(appointment => (
+                        <div className="appointments" key={appointment.id}>
+                            <span className="date">{appointment.date}</span>
+                            <span className='time'>{appointment.Time.time}</span>
+                            <span className="staff">{appointment.Employee.firstName}</span>
+                            <span className='service'>{appointment.Service.serviceName}</span>
+                        </div>)) : "No Future Appointments Scheduled"}
+                </div>
             </div>
         </div>
     )

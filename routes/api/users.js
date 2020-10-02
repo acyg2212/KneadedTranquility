@@ -17,7 +17,6 @@ router.get('/', asyncHandler(async function (req, res, next) {
 
 router.post("/", cors(), userLoginValidators, asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
-
     const validatorErrors = validationResult(req)
     if (!validatorErrors.isEmpty()) {
         const errors = validatorErrors.array().map((error) => error.msg);
@@ -71,7 +70,8 @@ router.post("/register", cors(), userCreatorValidators, asyncHandler(async (req,
         const token = getUserToken(user);
         console.log("Token:", token);
         res.cookie('token', token, { maxAge: expiresIn * 1000 });
-        res.json({ id: user.id, token });
+        console.log(user)
+        res.json({ id: user.id, token, firstName: user.firstName });
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
         console.log(errors)

@@ -75,7 +75,7 @@ const tryLogin = () => {
                 const data = await response.json();
                 dispatch(updateTokenValue(data.token));
                 dispatch(updateFirstNameValue(data.firstName))
-                console.log(data)
+                window.localStorage.setItem('firstName', data.firstName)
                 window.localStorage.setItem('SPA_TOKEN', data.token);
                 window.localStorage.setItem('userId', data.id)
             } else if (response.status === 401) {
@@ -108,11 +108,11 @@ const tryRegister = () => {
                 const data = await response.json();
                 dispatch(updateTokenValue(data.token));
                 window.localStorage.setItem('SPA_TOKEN', data.token);
-                window.localStorage.setItem('userId', data.userId)
+                window.localStorage.setItem('userId', data.id);
+                window.localStorage.setItem('firstName', data.firstName)
 
             } else if (response.status === 422) {
                 const errors = await response.json();
-                console.log(errors)
                 dispatch(updateErrorsValue(errors))
             }
             else {

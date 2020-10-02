@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     Appointments.belongsTo(models.Employee, { foreignKey: 'employeeId' });
     Appointments.belongsTo(models.Service, { foreignKey: 'serviceId' });
     Appointments.belongsTo(models.Time, { foreignKey: 'startTimeId' });
-    Appointments.hasMany(models.User, { foreignKey: 'userId' });
   };
   return Appointments;
 };
