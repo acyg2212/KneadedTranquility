@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Redirect } from 'react-router-dom';
+
 
 const Calendar = props => {
-    console.log(props)
     const [startDate, setStartDate] = useState(new Date());
     const [availableTimes, setAvailableTimes] = useState([])
 

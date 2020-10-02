@@ -7,6 +7,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Employee.associate = function (models) {
     Employee.belongsTo(models.ServiceType, { foreignKey: 'serviceTypeId' });
+    Employee.hasMany(models.Appointments, { foreignKey: 'employeeId' });
+
   };
   return Employee;
 };
