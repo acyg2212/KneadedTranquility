@@ -4,7 +4,6 @@ import { actions, thunks } from '../store/auth';
 import { Redirect } from 'react-router-dom';
 
 const RegisterUser = props => {
-    console.log(props)
     if (props.token) {
         return <Redirect to="/appointments" />
     }

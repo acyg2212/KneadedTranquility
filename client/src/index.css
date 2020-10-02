@@ -1,3 +1,6 @@
+#root{
+    padding-bottom: 100px;
+}
 .navbar{
     background-color: lightblue;
     height: 75px;
@@ -6,6 +9,7 @@
     justify-content: space-around;
     border: solid black 3px;
     border-radius: 15px;
+    margin-bottom: 1px;
 }
 
 .link {
@@ -94,10 +98,13 @@ h4{
 
 footer{
     background-color: lightblue;
-    height: 75px;
-    bottom: 100px;
+    position: fixed;
+    left:0;
+    bottom:0;
+    right:0;
     border: black solid 3px;
     border-radius: 15px;
+    height:100px;
    
 }
 
@@ -142,14 +149,141 @@ h3{
 }
 
 /* This is where the CSS for the Appointment Screen Begins */
+.logout{
+    border-radius: 20px;
+    height: 40px;
+    margin-right: 25px;
+}
+
+.my-appointments-booknow, .my-appointments-button{
+     border-radius: 20px;
+    height: 40px;
+}
+
+.my-appointments-button-group{
+    margin-left: 25px;
+}
 
 .appointments-nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: gray;
+    
 }
 
 .isHidden{
     display: none;
 }
+
+/* My appointments css */
+
+.my-appointments-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 100px;
+    margin-top: 60px;
+    
+}
+h2{
+    text-align: center;
+    margin-top: 40px;
+}
+h4{
+    text-align: center;
+}
+
+.my-appointments-container__container{
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: lightgray;
+    border-radius: 15px;
+    
+}
+
+.past-appointments{
+    display: grid;
+    /* grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+    grid-template-areas: 
+    "date  time  staff  service";
+    justify-content: left;
+    margin-left: 10px;
+    margin-right: 10px; */
+    margin-bottom: 30px;
+}
+
+.appointments{
+    display:grid;
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+    grid-template-areas: 
+    "date  time  staff  service";
+    justify-content: space-evenly;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.date{
+    grid-area: "date";
+    margin-right: 10px;
+    margin-left: 30px;
+}
+.time{
+    grid-area: "time";
+    margin-right: 10px;
+}
+.staff{
+    grid-area: "staff";
+    margin-right: 10px;
+}
+.service{
+    grid-area: "service";
+    margin-right: 30px;
+}
+
+/* book now component */
+.book-now-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.employee-div{
+   display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.schedulerDiv{
+      display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+select{
+    width: 300px;
+    text-align-last: center;
+    border-radius: 20px;
+}
+
+.calendarDiv{
+    margin-bottom: 5px;
+}
+
+.timeDiv{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+
+
+
+

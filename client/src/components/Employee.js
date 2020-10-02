@@ -28,7 +28,7 @@ const Employee = ({ props }) => {
 
     return (
 
-        <div className="services-div">
+        <div className="employee-div">
             <select value={selectedEmployeeOption} onChange={handleChange} id="services">
                 <option value="">--Please choose a Spa Associate--</option>
                 {employees.employees.map(employee => {

@@ -2,7 +2,7 @@ import React from 'react';
 import FacialPic from '../assets/facial.jpg'
 import MassagePic from '../assets/massage.jpg'
 import EssentialOil from "../assets/essential-oils.jpg"
-import lotus from "../assets/lotus.png"
+
 
 const Home = () => {
 
