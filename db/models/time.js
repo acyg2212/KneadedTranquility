@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   Time.associate = function (models) {
-    // associations can be defined here
+    Time.hasMany(models.Appointments, { foreignKey: 'startTimeId' });
   };
   return Time;
 };

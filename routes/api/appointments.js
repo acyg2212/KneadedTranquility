@@ -2,13 +2,27 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const router = express.Router();
 const cors = require("cors");
-const { ServiceType, Service, Employee, Appointments, Time } = require("../../db/models")
+const { ServiceType, Service, Employee, Appointments, Time, User } = require("../../db/models")
 const { Op } = require("sequelize");
 
 
 router.get("/", cors(), asyncHandler(async (req, res, next) => {
     const serviceTypes = await ServiceType.findAll();
     res.json({ serviceTypes })
+}));
+
+router.put("/my-appointments", cors(), asyncHandler(async (req, res, next) => {
+    const { userId } = req.body;
+    console.log(userId)
+    const appointments = await Appointments.findAll({
+        where: {
+            userId: userId
+        },
+        include: [Time, Employee, Service]
+
+    });
+    console.log(appointments)
+    res.json({ appointments })
 }));
 
 router.post("/", cors(), asyncHandler(async (req, res, next) => {

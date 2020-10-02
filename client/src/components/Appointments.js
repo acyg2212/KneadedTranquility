@@ -8,7 +8,6 @@ import MyAppointments from './MyAppointments';
 const Appointments = props => {
     const [bookNow, setBookNowValue] = useState(false);
 
-    console.log(bookNow)
     return (
         <>
             <div className="appointments-container">

@@ -8,8 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     startTimeId: DataTypes.INTEGER,
     endTimeId: DataTypes.INTEGER
   }, {});
-  Appointments.associate = function(models) {
-    // associations can be defined here
+  Appointments.associate = function (models) {
+    Appointments.belongsTo(models.Employee, { foreignKey: 'employeeId' });
+    Appointments.belongsTo(models.Service, { foreignKey: 'serviceId' });
+    Appointments.belongsTo(models.Time, { foreignKey: 'startTimeId' });
+    Appointments.hasMany(models.User, { foreignKey: 'userId' });
   };
   return Appointments;
 };

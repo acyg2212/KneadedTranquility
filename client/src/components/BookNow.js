@@ -2,29 +2,15 @@ import React, { useEffect, useState } from 'react';
 import Service from './Service';
 
 
+
 const BookNow = () => {
     let [serviceTypes, setServiceTypes] = useState([]);
     let [selectedOption, setSelectedOption] = useState('');
 
     const handleChange = event => {
-        // event.preventDefault()
         setSelectedOption(event.target.value)
     }
 
-    // let renderSelectedForm = (selectedOption) => {
-    //     switch (selectedOption.value) {
-    //         case "1":
-    //             return <Massage />
-
-    //         case "2":
-    //             return <div>Option 2</div>
-
-    //         case "3":
-    //             return <div>Option 3</div>
-    //         default:
-    //             return null;
-    //     }
-    // }
 
     useEffect(() => {
         const loadServiceTypes = async () => {
@@ -44,6 +30,7 @@ const BookNow = () => {
 
     return (
         <div className="book-now-div">
+
             <select value={selectedOption} onChange={handleChange} id="serviceTypes">
                 <option value="">--Please choose a Service Type--</option>
                 {serviceTypes.serviceTypes.map(serviceType => {
