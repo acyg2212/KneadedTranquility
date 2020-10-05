@@ -67,7 +67,7 @@ const MyAppointments = props => {
         }
         loadAppointments()
 
-    }, [])
+    }, [props])
 
     return (
         <div className="my-appointments-container">

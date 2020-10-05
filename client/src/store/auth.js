@@ -91,6 +91,39 @@ const tryLogin = () => {
     };
 }
 
+const tryDemo = () => {
+    return async (dispatch) => {
+        // const email = dispatch(updateEmailValue("demo@example.com"));
+        // const password = dispatch(updatePasswordValue("password"));
+        const response = await fetch('http://localhost:3000/api/users', {
+            method: "POST",
+            body: JSON.stringify({ email: "demo@example.com", password: "password" }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        console.log(response)
+        try {
+            if (response.status >= 200 && response.status < 400) {
+                const data = await response.json();
+                dispatch(updateTokenValue(data.token));
+                dispatch(updateFirstNameValue(data.firstName))
+                window.localStorage.setItem('firstName', data.firstName)
+                window.localStorage.setItem('SPA_TOKEN', data.token);
+                window.localStorage.setItem('userId', data.id)
+            } else if (response.status === 401) {
+                dispatch(updateErrorsValue({ errors: ["UserName or Password is Incorrect"] }))
+            } else if (response.status === 422) {
+                const errors = await response.json();
+                dispatch(updateErrorsValue(errors));
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
+    };
+}
+
 const tryRegister = () => {
 
     return async (dispatch, getState) => {
@@ -128,6 +161,7 @@ const tryRegister = () => {
 export const thunks = {
     tryLogin,
     tryRegister,
+    tryDemo,
 }
 
 const initialState = {

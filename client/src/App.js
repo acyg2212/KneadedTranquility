@@ -8,6 +8,7 @@ import Logo from './assets/Kneaded-Tranquility-Logo.gif';
 import Home from './components/Home';
 import RegisterUser from './components/RegisterUser';
 import Appointments from './components/Appointments';
+import ServicesPage from './components/ServicesPage';
 
 
 function App(props) {
@@ -25,14 +26,23 @@ function App(props) {
                     <Route path="/sign-up">
                         <RegisterUser />
                     </Route>
-
+                    <Route path="/services" component={ServicesPage} />
                     <ProtectedRoute isLoggedIn={props.token} path="/appointments">
                         <Appointments />
                     </ProtectedRoute>
                 </Switch>
             </BrowserRouter>
             <footer>
-
+                <div className="footer-left">
+                    About Us
+                </div>
+                <div className="footer-middle">
+                    <p className="footer-p">2020 Kneaded Tranquility</p>
+                </div>
+                <div className="footer-right">
+                    <p className="footer-p">Created by</p>
+                    <a className="footer-link" href="https://github.com/acyg2212">Aaron</a>
+                </div>
             </footer>
         </>
     );

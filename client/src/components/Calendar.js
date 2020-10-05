@@ -54,7 +54,7 @@ const Calendar = props => {
                 <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
             </div>
             <div className="timeDiv">
-                {startDate ? availableTimes.map(time => <button onClick={clickHandler} value={time.id} key={time.id}>{time.time}</button>) : ""}
+                {startDate ? availableTimes.map(time => <button className="available-time-button" onClick={clickHandler} value={time.id} key={time.id}>{time.time}</button>) : ""}
             </div>
         </div>
     )
