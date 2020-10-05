@@ -105,7 +105,24 @@ footer{
     border: black solid 3px;
     border-radius: 15px;
     height:100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
    
+}
+
+.footer-p{
+    margin-left: 0;
+    margin-bottom: 0;
+    text-align: center;
+    display: inline;
+    margin-right: 5px;
+
+}
+
+.footer-link{
+    display: inline;
 }
 
 form{
@@ -153,11 +170,23 @@ h3{
     border-radius: 20px;
     height: 40px;
     margin-right: 25px;
+    transition: all .2s ease-in-out;
+}
+
+.logout:hover{
+   transform: scale(1.2); 
+
 }
 
 .my-appointments-booknow, .my-appointments-button{
      border-radius: 20px;
     height: 40px;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+.my-appointments-booknow:hover, .my-appointments-button:hover{
+    transform: scale(1.2); 
 }
 
 .my-appointments-button-group{
@@ -191,6 +220,10 @@ h2{
 }
 h4{
     text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-variant: small-caps;
+    font-size: 20px;
+    text-decoration: underline;
 }
 
 .my-appointments-container__container{
@@ -217,27 +250,41 @@ h4{
     grid-template-columns: 1fr, 1fr, 1fr, 1fr;
     grid-template-areas: 
     "date  time  staff  service";
-    justify-content: space-evenly;
+    justify-content: left;
     margin-left: 10px;
-    margin-right: 10px;
+    
 }
 
 .date{
     grid-area: "date";
     margin-right: 10px;
     margin-left: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-variant: small-caps;
+    font-size: 30px;
+    margin-right: 20px;
 }
 .time{
     grid-area: "time";
     margin-right: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-variant: small-caps;
+    font-size: 30px;
+    margin-right: 20px;
 }
 .staff{
     grid-area: "staff";
     margin-right: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-variant: small-caps;
+    font-size: 30px;
 }
 .service{
     grid-area: "service";
     margin-right: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-variant: small-caps;
+    font-size: 30px;
 }
 
 /* book now component */
@@ -245,6 +292,7 @@ h4{
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
 }
 
 .services-div{
@@ -269,6 +317,7 @@ select{
     width: 300px;
     text-align-last: center;
     border-radius: 20px;
+    outline: none;
 }
 
 .calendarDiv{
@@ -283,7 +332,130 @@ select{
     row-gap: 5px;
 }
 
+.available-time-button{
+    border-radius: 15px;
+    transition: all .2s ease-in-out;
+}
 
+.available-time-button:hover{
+    transform: scale(1.1); 
+}
 
+/* servces page css */
+.services-page-div{
+    background-color: grey;
+    height: 250px;
+    position: relative;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
 
+.services-page-title{
+    color: white;
+    position: absolute;
+    left: 300px;
+    top: 50px;
+    font-family: fantasy;
+    font-size: 25px;
+}
 
+.services-page-sub-title{
+    color: white;
+    position: absolute;
+    left:140px;
+    top: 90px;
+    font-family: fantasy;
+    font-size: 40px;
+}
+
+.services-page-booknow{
+    position: absolute;
+    bottom: 5px;
+    border-radius: 20px;
+    height: 40px;
+    width: 100px;
+    left: 355px;
+    outline: none;
+    transition: all .2s ease-in-out;
+}
+
+.services-page-booknow:hover {
+    transform: scale(1.1); 
+}
+
+.services-img {
+    position: absolute;
+    right:50px;
+    z-index: 1;
+    top: 300px;
+    border-radius: 15px;
+}
+
+th{
+    align-content: center;
+}
+
+tr{
+    text-align: center;
+}
+
+.service-list-container{
+    display: grid;
+    height:1000px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "massage-table massage-table . ."
+    "nail-picture nail-picture nails-table nails-table"
+    "facials-table facials-table facial-picture facial-picture"
+    ;
+}
+
+caption{
+    font-size: 25px;
+    font-variant: small-caps;
+}
+
+.massage-table{
+    grid-area: massage-table;
+    background-color: lightgray;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.nails-table{
+    grid-area: nails-table;
+     background-color: lightgray;
+    border-radius: 15px;
+    margin-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 95px;
+}
+
+.facials-table{
+    grid-area: facials-table;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: lightgray;
+    border-radius: 15px;
+    margin-left: 50px;
+    margin-top: 95px;
+}
+
+.manicure-picture{
+    grid-area:nail-picture;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+
+.facial-picture{
+    grid-area: facial-picture;
+    margin-left: 100px;
+    margin-bottom: 125px;
+    border-radius: 15px;
+}

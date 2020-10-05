@@ -28,6 +28,9 @@ const LoginForm = props => {
                 <div>
                     <button onClick={props.tryLogin}>Log In</button>
                 </div>
+                <div>
+                    <button onClick={props.tryDemo}>Demo Login</button>
+                </div>
             </form>
         </div>
     );
@@ -40,6 +43,10 @@ const mapDispatchToProps = dispatch => {
         tryLogin: (event) => {
             event.preventDefault();
             dispatch(thunks.tryLogin());
+        },
+        tryDemo: (event) => {
+            event.preventDefault();
+            dispatch(thunks.tryDemo());
         }
     };
 };
