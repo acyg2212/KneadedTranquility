@@ -399,6 +399,11 @@ tr{
     text-align: center;
 }
 
+td{
+    font-size: 20px;
+    font-variant: small-caps;
+}
+
 .service-list-container{
     display: grid;
     height:1000px;
@@ -423,6 +428,7 @@ caption{
     margin-left: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    border: black groove 5px;
 }
 
 .nails-table{
@@ -433,6 +439,7 @@ caption{
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 95px;
+    border: black groove 5px;
 }
 
 .facials-table{
@@ -443,6 +450,7 @@ caption{
     border-radius: 15px;
     margin-left: 50px;
     margin-top: 95px;
+    border: black groove 5px;
 }
 
 .manicure-picture{

@@ -11,6 +11,7 @@ module.exports = {
     return queryInterface.bulkInsert('Services', [
       r({ serviceName: "Swedish Massage", serviceTypeId: 1 }),
       r({ serviceName: "Deep Tissue Massage", serviceTypeId: 1 }),
+      r({ serviceName: "Sports Massage", serviceTypeId: 1 }),
       r({ serviceName: "Manicure", serviceTypeId: 2 }),
       r({ serviceName: "Pedicure", serviceTypeId: 2 }),
       r({ serviceName: "Vitamin C", serviceTypeId: 3 }),

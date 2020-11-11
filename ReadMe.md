@@ -1,4 +1,6 @@
-# Features
+# Kneaded Tranquility
+
+![Alt text](client/src/assets/homePage-screenshot.png)
 
 ## User Stories
 

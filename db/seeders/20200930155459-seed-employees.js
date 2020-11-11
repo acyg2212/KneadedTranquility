@@ -13,6 +13,9 @@ module.exports = {
       r({ firstName: "Joe", lastName: "Smith", serviceTypeId: 1 }),
       r({ firstName: "Lucy", lastName: "Jones", serviceTypeId: 2 }),
       r({ firstName: "Jane", lastName: "Doe", serviceTypeId: 3 }),
+      r({ firstName: "Janet", lastName: "Smith", serviceTypeId: 1 }),
+      r({ firstName: "Luke", lastName: "Jones", serviceTypeId: 2 }),
+      r({ firstName: "Bridgette", lastName: "Doe", serviceTypeId: 3 }),
     ], {});
   },
 
