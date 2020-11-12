@@ -12,7 +12,7 @@ const Employee = ({ props }) => {
 
     useEffect(() => {
         const loadServiceTypes = async () => {
-            const response = await fetch(`http://localhost:3000/api/appointments/employee/${props.serviceTypeId}`)
+            const response = await fetch(`/api/appointments/employee/${props.serviceTypeId}`)
             if (response.ok) {
                 let employed = await response.json()
                 let { employees } = employed

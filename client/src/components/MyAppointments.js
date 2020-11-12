@@ -7,7 +7,7 @@ const MyAppointments = props => {
     useEffect(() => {
         const loadAppointments = async () => {
             const userId = window.localStorage.getItem('userId');
-            const response = await fetch('http://localhost:3000/api/appointments/my-appointments/',
+            const response = await fetch('/api/appointments/my-appointments/',
                 {
                     method: "PUT",
                     body: JSON.stringify({ userId }),

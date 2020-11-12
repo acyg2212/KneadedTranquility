@@ -7,7 +7,7 @@ const updateServiceTypeValue = value => ({
 
 export const tryServiceType = () => {
     return async (dispatch) => {
-        const response = await fetch('http://localhost:3000/api/appointments/')
+        const response = await fetch('/api/appointments/')
         console.log(response)
         try {
             if (response.status >= 200 && response.status < 400) {

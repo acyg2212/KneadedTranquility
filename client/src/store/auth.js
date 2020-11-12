@@ -62,7 +62,7 @@ export const actions = {
 const tryLogin = () => {
     return async (dispatch, getState) => {
         const { auth: { email, password } } = getState();
-        const response = await fetch('http://localhost:3000/api/users', {
+        const response = await fetch('/api/users', {
             method: "POST",
             body: JSON.stringify({ email, password }),
             headers: {
@@ -95,7 +95,7 @@ const tryDemo = () => {
     return async (dispatch) => {
         // const email = dispatch(updateEmailValue("demo@example.com"));
         // const password = dispatch(updatePasswordValue("password"));
-        const response = await fetch('http://localhost:3000/api/users', {
+        const response = await fetch('/api/users', {
             method: "POST",
             body: JSON.stringify({ email: "demo@example.com", password: "password" }),
             headers: {
@@ -128,7 +128,7 @@ const tryRegister = () => {
 
     return async (dispatch, getState) => {
         const { auth: { email, password, firstName, lastName, confirmPassword, phoneNumber } } = getState();
-        const response = await fetch('http://localhost:3000/api/users/register', {
+        const response = await fetch('/api/users/register', {
             method: "POST",
             body: JSON.stringify({ email, password, firstName, lastName, confirmPassword, phoneNumber }),
             headers: {

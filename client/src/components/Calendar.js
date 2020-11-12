@@ -9,7 +9,7 @@ const Calendar = props => {
 
     useEffect(() => {
         const loadTimes = async () => {
-            const response = await fetch(`http://localhost:3000/api/appointments/date`,
+            const response = await fetch(`/api/appointments/date`,
                 {
                     method: "POST",
                     body: JSON.stringify({ props, startDate }),
@@ -34,7 +34,7 @@ const Calendar = props => {
         const timeId = event.target.value;
         let userId = window.localStorage.getItem("userId")
         console.log(userId)
-        const response = await fetch(`http://localhost:3000/api/appointments/`, {
+        const response = await fetch(`/api/appointments/`, {
 
             method: "POST",
             body: JSON.stringify({ employeeId, serviceId, timeId, startDate, userId }),

@@ -12,7 +12,7 @@ const Service = ({ props }) => {
 
     useEffect(() => {
         const loadServiceTypes = async () => {
-            const response = await fetch(`http://localhost:3000/api/appointments/${props}`)
+            const response = await fetch(`/api/appointments/${props}`)
             if (response.ok) {
                 let served = await response.json()
                 let { services } = served

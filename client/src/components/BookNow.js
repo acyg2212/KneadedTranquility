@@ -14,7 +14,7 @@ const BookNow = () => {
 
     useEffect(() => {
         const loadServiceTypes = async () => {
-            const response = await fetch('http://localhost:3000/api/appointments/')
+            const response = await fetch('/api/appointments/')
             if (response.ok) {
                 let service = await response.json()
                 let { serviceTypes } = service
@@ -47,20 +47,6 @@ const BookNow = () => {
     )
 }
 
-// const mapStateToProps = state => {
-//     return null
-// }
-// const mapStateToProps = state => {
-//     return {
-//         serviceTypes: state.appointmentBooking.serviceTypes,
-//     }
-// }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         tryServiceType: dispatch(thunks.tryServiceType())
-//     }
-// }
 
 export default BookNow;
-// export default connect(mapStateToProps, mapDispatchToProps)(BookNow);
