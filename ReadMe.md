@@ -15,8 +15,24 @@
 * A way for the user to schedule a spa appointment and certain employee availability
 * When a user is logged in will be able to see their past and future appointments
 
-## Additional Features
+## Stretch Goals
 * A sign in page for employees to see clients that are scheduled.
+
+## Overall Structure
+
+### Back end
+The app was built using Express with a PostgreSQL Database. The Kneaded Tranquility App is RESTful
+
+### Front end
+The front end is completely built with React and JavaScript. Using React there wasn't any need for refreshes or extra calls to the database. 
+
+### Libraries
+* React.js
+* BCrypt
+* Express
+* Sequelize
+* Redux
+* React-datepicker
 
 ## Tables
 
