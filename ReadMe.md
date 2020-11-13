@@ -34,6 +34,23 @@ The front end is completely built with React and JavaScript. Using React there w
 * Redux
 * React-datepicker
 
+## Primary Components
+
+### User Authorization
+User Authentication is handled in Express by the BCrypt library. Passwords are not saved in the database, only the hashed passwords. When a client logs in, the password is hashed and checked against the original encrypted password.
+
+![Alt text](client/src/assets/logInScreen.png)
+
+### Scheduling Appointments
+Using React components, useState, and useEffect hooks, to dynamically render the appointment form. It is then sent to the back end and stored in the Services table in the database.
+
+![Alt text](client/src/assets/AppointmentScreen.png)
+
+### Clients Appointment Screen
+React's useEffect hook is used to make a call to the backend API to get all appointments for the client. The current date is then found using JavaScript Date object. Then the appointments are filtered to either past or future appointments.
+
+![Alt text](client/src/assets/Appointments.png)
+
 ## Tables
 
 * Users(clients)
