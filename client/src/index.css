@@ -508,7 +508,14 @@ caption{
 }
 
 /* about us */
+a{
+    text-decoration: none;
+    color: black;
+}
 
+a:hover{
+    color:white;
+}
 .about-us-h2{
     border-bottom: lightgray 1px solid;
     color: lightblue;

@@ -36,7 +36,7 @@ function App(props) {
             </BrowserRouter>
             <footer>
                 <div className="footer-left">
-                    About Us
+                    <a href="/about-us">About Us</a>
                 </div>
                 <div className="footer-middle">
                     <p className="footer-p">2020 Kneaded Tranquility</p>
