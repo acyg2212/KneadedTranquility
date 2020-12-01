@@ -218,13 +218,18 @@ h3{
 }
 
 /* My appointments css */
+/* .appointments-container{
+    background-image: url("assets/simple-backgroung.jpg");
+    background-size: 100%;
+} */
 
 .my-appointments-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    
     justify-content: center;
     margin-bottom: 100px;
-    margin-top: 60px;
+    margin-top: 20px;
     
 }
 h2{
@@ -239,32 +244,50 @@ h4{
     text-decoration: underline;
 }
 
+.past-appointments-h4{
+    background-color: lightgray;
+    margin-bottom: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: darkgrey 1px solid;
+    box-shadow: 5px 10px;
+    padding-bottom: .75em;
+    padding-top: .75em;
+    text-decoration: none;
+    
+    padding-left: 10px;
+    
+}
+
 .my-appointments-container__container{
     margin-left: 50px;
     margin-right: 50px;
-    background-color: lightgray;
-    border-radius: 15px;
+    background-color: white;
+    border: grey solid 1px;
+    box-shadow: 5px 10px;
+    margin-bottom: 20px;
     
 }
 
 .past-appointments{
     display: grid;
-    /* grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-    grid-template-areas: 
-    "date  time  staff  service";
+    grid-template-columns: 1fr; 
     justify-content: left;
     margin-left: 10px;
-    margin-right: 10px; */
+    margin-right: 10px; 
     margin-bottom: 30px;
+   
 }
 
 .appointments{
     display:grid;
-    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+    grid-template-columns: 25%, 25%, 25%, 25%;
     grid-template-areas: 
     "date  time  staff  service";
     justify-content: left;
     margin-left: 10px;
+    column-gap: 100px;
+    width: 100%;
     
 }
 
@@ -284,6 +307,7 @@ h4{
     font-variant: small-caps;
     font-size: 30px;
     margin-right: 20px;
+    width: 40px;
 }
 .staff{
     grid-area: "staff";
@@ -291,6 +315,7 @@ h4{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-variant: small-caps;
     font-size: 30px;
+    width: 40px;
 }
 .service{
     grid-area: "service";
@@ -305,7 +330,8 @@ h4{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: none;
+
 }
 
 .services-div{
