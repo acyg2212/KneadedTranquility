@@ -9,6 +9,7 @@ import Home from './components/Home';
 import RegisterUser from './components/RegisterUser';
 import Appointments from './components/Appointments';
 import ServicesPage from './components/ServicesPage';
+import AboutUs from './components/AboutUs';
 
 
 function App(props) {
@@ -26,6 +27,7 @@ function App(props) {
                     <Route path="/sign-up">
                         <RegisterUser />
                     </Route>
+                    <Route path="/about-us" component={AboutUs} />
                     <Route path="/services" component={ServicesPage} />
                     <ProtectedRoute isLoggedIn={props.token} path="/appointments">
                         <Appointments />

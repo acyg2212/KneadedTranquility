@@ -506,3 +506,18 @@ caption{
     margin-bottom: 125px;
     border-radius: 15px;
 }
+
+/* about us */
+
+.about-us-h2{
+    border-bottom: lightgray 1px solid;
+    color: lightblue;
+    text-shadow: 1px 1px 2px black;
+}
+
+.about-us-h4{
+    text-decoration: none;
+    color: lightblue;
+    text-shadow: 1px 1px 2px black;
+}
+
