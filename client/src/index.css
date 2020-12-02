@@ -122,6 +122,12 @@ footer{
    
 }
 
+.footer-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .footer-p{
     margin-left: 0;
     margin-bottom: 0;
@@ -552,3 +558,4 @@ a:hover{
 .about-us-p{
     font-family: sans-serif;
 }
+
