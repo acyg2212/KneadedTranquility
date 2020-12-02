@@ -42,8 +42,17 @@ function App(props) {
                     <p className="footer-p">2020 Kneaded Tranquility</p>
                 </div>
                 <div className="footer-right">
-                    <p className="footer-p">Created by</p>
-                    <a className="footer-link" href="https://github.com/acyg2212">Aaron</a>
+                    <div>
+                        <a className="footer-link" href="https://github.com/acyg2212">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+
+                    <div>
+                        <a className="footer-link" href="https://acyg2212.github.io/">
+                            <i class="far fa-address-card"></i>
+                        </a>
+                    </div>
                 </div>
             </footer>
         </>
