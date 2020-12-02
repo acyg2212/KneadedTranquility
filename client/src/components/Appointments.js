@@ -20,17 +20,17 @@ const Appointments = props => {
             <div className="appointments-container">
                 <div className="appointments-nav">
                     <div className="my-appointments-button-group">
-                        <button className="my-appointments-button" onClick={() => setBookNowValue(true)}>My Appointments</button>
-                        <button className="my-appointments-booknow" onClick={() => setBookNowValue(false)}>Book Now</button>
+                        <button className="my-appointments-button" onClick={() => setBookNowValue(false)}>My Appointments</button>
+                        <button className="my-appointments-booknow" onClick={() => setBookNowValue(true)}>Book Now</button>
                     </div>
                     <button className="logout" onClick={() => deleteUserData()}>Log Out</button>
                 </div>
                 <h2>Welcome {firstName}</h2>
                 <div className="appointment-block">
-                    <div className={bookNow ? "isHidden" : ""}>
+                    <div className={bookNow ? "" : "isHidden"}>
                         <BookNow />
                     </div>
-                    <div className={bookNow ? "" : "isHidden"}>
+                    <div className={bookNow ? "isHidden" : ""}>
                         <MyAppointments />
                     </div>
                 </div>
